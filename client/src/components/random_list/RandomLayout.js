@@ -29,6 +29,7 @@ const RandomLayout = () => {
         }
       })
       .catch(err => {
+        console.log(err)
         setLoading(false)
       })
   }

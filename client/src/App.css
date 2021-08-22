@@ -2,7 +2,6 @@
   box-sizing: border-box;
   padding:0;
   margin:0;
-  
 }
 
 body{
@@ -178,6 +177,7 @@ input{
    transform: rotate(360deg);
  }
 }
+
 @keyframes loader-path {
  0%{
    stroke-dasharray:  0, 580, 0, 0, 0, 0, 0, 0, 0;

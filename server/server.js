@@ -17,12 +17,12 @@ db.connect((err)=>{
 })
 
 app.get("/random_list", (req, res) => {
-  // 0.0003 gives least variety in sample; 0.0000259 gives most variety with minimal time 
   let my_list = // Obtains a random list of 15 NSN numbers; benchmark 0.01 sec
   "SELECT concat(FSC, concat('-0', COUNTRY_CODE), '-', IF(LENGTH(NIIN) < 8, LEFT(LPAD(NIIN, 7, 0), 3), SUBSTRING(NIIN, 2, 3) ), '-', RIGHT(LPAD(NIIN, 8, 0), 4)) as nsn\
   FROM nsn \
   WHERE RAND() < 0.0000259 \
   LIMIT 15"
+  // 0.0003 gives least variety in sample; 0.0000259 gives most variety with minimal time 
 
   db.query(my_list, (err, result)=>{  
     if(err){
@@ -44,7 +44,7 @@ app.get("/detail/:nsn", (req, res) =>{
   }else{
     niin = param_nsn.slice(-3).join('')
   }
-  // part number and cage number unique different on many products
+  // part number and cage number, along with other fields unique on many products
   let nsn_detail = 
   `SELECT * \
    FROM \

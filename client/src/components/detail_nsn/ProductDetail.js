@@ -1,25 +1,34 @@
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'
 import { Table } from 'antd'
+
+import LoadingPlane from '../LoadingPlane'
+
 import 'antd/dist/antd.css';
 
 const ProductDetail = (props) => {
   const [details, setDetails] = useState()
+  const [waiting, setWaiting] = useState(false)
   const current_nsn = props.match.params.nsn
 
-  const getDetails = ()=>{
-    // fetches details of NSN located in aggregated db 
-    fetch(`/detail/${current_nsn}`)
-    .then(res => res.json())
-    .then(data => {
-        setDetails(data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+  
   useEffect(()=>{
+    const getDetails = ()=>{
+      // fetches details of NSN located in aggregated db 
+      setWaiting(true)
+      fetch(`/detail/${current_nsn}`)
+      .then(res => res.json())
+      .then(data => {
+          setDetails(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+      setWaiting(false)
+    }
+
     getDetails()
-  }, [])
+  }, [current_nsn])
 
   const columns = [
     {
@@ -130,13 +139,14 @@ const ProductDetail = (props) => {
   
   return ( 
     <div>
-      <a href='/' className='return-home'>Return to Home Page</a>
+      <Link to='/' className='return-home'>Return to Home Page</Link>
       <h1 style={{textAlign:'center'}}> Details for {current_nsn}</h1>
       <Table
         columns={columns}
         dataSource={details}
         scroll={{ x: 1600 }}
         sticky
+        loading={waiting ? { indicator: <LoadingPlane /> } : false}
       />
     </div>
    );

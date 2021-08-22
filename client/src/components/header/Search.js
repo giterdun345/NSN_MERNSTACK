@@ -8,7 +8,6 @@ const Search = () => {
   const validateNSN = (data)=>{
     // checks to see if the correct NSN number was input into search 
     let regex = /\d{4}-\d{2}-\d{3}-\d{4}|^\d{13}/g
-    
     if(regex.test(data)){ 
       console.log(data)
       setInputError()
@@ -33,7 +32,7 @@ const Search = () => {
   };
 
   return (
-    <form  onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <ul className="list-plain list-search">
         <li>
           <input type="text" onChange={event => setInput(event.target.value)} className="pull-left input-md form-control input-abg" placeholder="Search using NSN..."/>

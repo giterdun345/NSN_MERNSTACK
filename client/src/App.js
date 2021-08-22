@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/header/Header'
 import RandomLayout from './components/random_list/RandomLayout'
 import ProductDetail from './components/detail_nsn/ProductDetail'
+import PathNotFound from './components/PathNotFound';
 
 import './App.css'
-import PathNotFound from './components/PathNotFound';
 
 const App = ()=> {  
   return (
