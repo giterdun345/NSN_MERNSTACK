@@ -1,0 +1,191 @@
+*{
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+  
+}
+
+body{
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+}
+
+.header {
+  width: 100%;
+  height: 123px;
+  background-color: #0055d0;
+}
+
+.header_nav {
+  background: #444;
+  width: 100%;
+  height: 38px;
+  color: #fff;
+  padding-top: 8px;
+  border-top: 1px dotted #69acef;
+}
+
+.breadcrumbs-container {
+  font-size: 15px;
+  color: #fff;
+  width: 100%;
+  padding-top: 20px;
+  background: #222;
+}
+
+.logo {
+  height: 96px;
+}
+
+.logoimg{
+  max-height: 115px;
+  width:auto;
+  position: absolute;
+}
+
+.pull-left {
+  float: left;
+}
+
+.main_nav {
+  float: right;
+  padding-top: 15px;
+  color: #fff;
+  padding-right: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 25rem;
+}
+
+.fa {
+  margin-bottom: -3px;
+}
+
+.pull-right {
+  float: right;
+  margin-bottom: 15px;
+  align-self: flex-end;
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+/* ################  SEARCH BAR  */
+.list-plain {
+  list-style-type: none;
+}
+
+.list-search{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+.form-control {
+  padding: 20px 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input{
+  height: 37px;
+  width: 16rem;
+}
+
+.input-error{
+  position: absolute;
+  top: 100px;
+  right: 45px;
+
+}
+
+.btn {
+  height: 43px;
+  padding: 6px 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: white;
+}
+
+.btn:hover{
+  color: #222;
+}
+
+.btn-abg, .btn-theme {
+  border-radius: 0;
+  background: #24a3dd;
+  text-shadow: 3px 3px 0 #222, -1px -1px 0 #555, 2px -1px 0 #555, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+ /* ############## RANDOM LIST OF 15 NSN  */
+.random-list{
+  text-align: center;
+  margin: 25px auto 50px auto;
+}
+
+.nsn-item{
+  margin-top: 15px;
+}
+
+.nsn-link{
+  font-weight: 800;
+  font: bold 16px 'Open Sans', sans-serif;
+  cursor: pointer;
+}
+
+/* ################ PRODUCT DETAIL  */
+.return-home{
+  color: white;
+  position: absolute;
+  top: 162px;
+  left: 25px;
+}
+
+.return-home:hover{
+  text-decoration: underline;
+
+}
+/* ############# PLANE LOADING  */
+/* thanks to https://codepen.io/webduke/pen/RydqXg  */
+.loading-container{
+  margin-top: 50px;
+  text-align: center;
+}
+.svg-calLoader{
+  width: 230px; height: 230px;
+  transform-origin: 115px 115px;
+  animation: 1.4s linear infinite loader-spin;
+}
+
+.cal-loader__plane{ 
+  fill: #0055d0;
+}
+
+.cal-loader__path{
+  stroke: black; 
+  animation: 1.4s ease-in-out infinite loader-path; 
+}
+
+@keyframes loader-spin {
+ to{
+   transform: rotate(360deg);
+ }
+}
+@keyframes loader-path {
+ 0%{
+   stroke-dasharray:  0, 580, 0, 0, 0, 0, 0, 0, 0;
+ }
+ 50%{
+   stroke-dasharray: 0, 450, 10, 30, 10, 30, 10, 30, 10;
+ }
+ 100%{
+   stroke-dasharray: 0, 580, 0, 0, 0, 0, 0, 0, 0;
+ }
+}
